@@ -65,3 +65,5 @@ fields:
   config:
     required: false
   label: VideoLink
+pages:
+- VocabularyWords/00052.md
