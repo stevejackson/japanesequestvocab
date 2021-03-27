@@ -13,9 +13,13 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+    "&:hover": {
+      boxShadow: "4px 4px 2px rgb(100, 100, 100, 1)",
+    }
   },
   cardMedia: {
     paddingTop: '56.25%', // 16:9
+    backgroundColor: 'rgb(240, 240, 240, 1)',
   },
   cardContent: {
     flexGrow: 1,
@@ -46,9 +50,6 @@ export const VocabularyWordCard = ({vocabularyWord}) => {
         <CardActions>
           <Button size="small" color="primary">
             View
-          </Button>
-          <Button size="small" color="primary">
-            Edit
           </Button>
         </CardActions>
       </Card>

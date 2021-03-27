@@ -85,7 +85,7 @@ const VocabularyIndexPage = ({vocabularyWords}) => {
           </Container>
         </div>
 
-        <Container className={classes.cardGrid} maxWidth="md">
+        <Container className={classes.cardGrid} maxWidth="lg">
           {/* End hero unit */}
           <TablePagination
             component="div"
