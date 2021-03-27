@@ -1,10 +1,7 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -74,7 +71,7 @@ const VocabularyIndexPage = ({vocabularyWords}) => {
               Japanese Quest
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Level up your power level with us.
+              Level up with us.
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">

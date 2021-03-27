@@ -25,12 +25,14 @@ const useStyles = makeStyles((theme) => ({
 export const VocabularyWordCard = ({vocabularyWord}) => {
   const classes = useStyles();
 
+  const imageLocation = vocabularyWord.screenshot ? vocabularyWord.screenshot.substring(7) : null
+
   return (
     <Grid item key={vocabularyWord.powerlevel} xs={12} sm={6} md={4}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.cardMedia}
-          image="https://source.unsplash.com/random"
+          image={imageLocation}
           title="Image title"
         />
         <CardContent className={classes.cardContent}>

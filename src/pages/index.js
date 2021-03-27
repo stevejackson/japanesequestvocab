@@ -4,7 +4,7 @@ import VocabularyIndexPage from "../components/features/vocabularyIndex/Vocabula
 
 const IndexPage = ({data}) => {
   const vocabularyWords = data.allMarkdownRemark.nodes.map(remark => remark.frontmatter)
-
+    .sort((a, b) => a.powerlevel - b.powerlevel)
   return <VocabularyIndexPage vocabularyWords={vocabularyWords} />
 }
 
@@ -22,6 +22,7 @@ query {
         powerlevel
         pronunciation
         title
+        screenshot
       }
     }
   }
