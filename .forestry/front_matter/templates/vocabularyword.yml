@@ -32,3 +32,5 @@ fields:
   config:
     required: false
   label: Pronunciation
+pages:
+- VocabularyWords/2114.md
