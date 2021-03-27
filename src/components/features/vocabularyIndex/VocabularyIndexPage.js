@@ -11,6 +11,8 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import {VocabularyWordCard} from "./VocabularyWordCard";
 
+import TablePagination from '@material-ui/core/TablePagination';
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -47,6 +49,19 @@ const useStyles = makeStyles((theme) => ({
 
 const VocabularyIndexPage = ({vocabularyWords}) => {
   const classes = useStyles();
+  const [page, setPage] = React.useState(2);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
+  let displayedVocabularyWords = vocabularyWords.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 
   return (
     <React.Fragment>
@@ -90,8 +105,17 @@ const VocabularyIndexPage = ({vocabularyWords}) => {
 
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
+          <TablePagination
+            component="div"
+            count={vocabularyWords.length}
+            page={page}
+            onChangePage={handleChangePage}
+            rowsPerPage={rowsPerPage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+          />
+
           <Grid container spacing={4}>
-            {vocabularyWords.map(vocabularyWord => <VocabularyWordCard key={vocabularyWord.powerlevel} vocabularyWord={vocabularyWord} /> )}
+            {displayedVocabularyWords.map(vocabularyWord => <VocabularyWordCard key={vocabularyWord.powerlevel} vocabularyWord={vocabularyWord} /> )}
           </Grid>
         </Container>
       </main>
