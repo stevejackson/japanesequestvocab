@@ -3,8 +3,7 @@ import { graphql } from 'gatsby'
 import {VocabularyWordCard} from "../components/VocabularyWordCard";
 
 const IndexPage = ({data}) => {
-  console.log(data.allContentfulVocabularyWord.nodes)
-  const vocabularyWords = data.allContentfulVocabularyWord.nodes;
+  const vocabularyWords = data.allMarkdownRemark.nodes.map(remark => remark.frontmatter)
 
   return (
     <main>
@@ -14,21 +13,21 @@ const IndexPage = ({data}) => {
 }
 
 export const query = graphql`
-{
-  allContentfulVocabularyWord {
-    totalCount
+query {
+  allMarkdownRemark {
     nodes {
-      episode
-      expression
-      game
       id
-      powerLevel
-      videoLink
+      rawMarkdownBody
+      frontmatter {
+        definition
+        expression
+        powerlevel
+        pronunciation
+        title
+      }
     }
   }
 }
-
 `
-
 
 export default IndexPage

@@ -8,12 +8,12 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-source-contentful",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        name: `markdown-pages`,
+        path: `${__dirname}/VocabularyWords`,
       },
     },
-    "gatsby-plugin-gatsby-cloud",
+    `gatsby-transformer-remark`,
   ],
 };
