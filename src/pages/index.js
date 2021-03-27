@@ -1,18 +1,18 @@
 import * as React from "react"
 import { graphql } from 'gatsby'
 import {VocabularyWordCard} from "../components/VocabularyWordCard";
+import { VocabularyIndexPage } from "./VocabularyIndexPage";
 
 const IndexPage = ({data}) => {
+  console.log(data)
   const vocabularyWords = data.allMarkdownRemark.nodes.map(remark => remark.frontmatter)
 
-  return (
-    <main>
-      {vocabularyWords.map(vocabularyWord => <VocabularyWordCard key={vocabularyWord.id} vocabularyWord={vocabularyWord} /> )}
-    </main>
-  )
+  return <VocabularyIndexPage vocabularyWords={vocabularyWords} />
 }
 
-export const query = graphql`
+export default IndexPage
+
+export const pageQuery = graphql`
 query {
   allMarkdownRemark {
     nodes {
@@ -29,5 +29,3 @@ query {
   }
 }
 `
-
-export default IndexPage
