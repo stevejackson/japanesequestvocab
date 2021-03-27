@@ -49,8 +49,8 @@ const useStyles = makeStyles((theme) => ({
 
 const VocabularyIndexPage = ({vocabularyWords}) => {
   const classes = useStyles();
-  const [page, setPage] = React.useState(2);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(100);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -66,36 +66,21 @@ const VocabularyIndexPage = ({vocabularyWords}) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon className={classes.icon} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Album layout
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Album layout
+              Japanese Quest
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
+              Level up your power level with us.
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
+                  <Button variant="contained" color="secondary">
+                    Visit the JapaneseQuest Twitch Channel
                   </Button>
                 </Grid>
               </Grid>
@@ -117,6 +102,15 @@ const VocabularyIndexPage = ({vocabularyWords}) => {
           <Grid container spacing={4}>
             {displayedVocabularyWords.map(vocabularyWord => <VocabularyWordCard key={vocabularyWord.powerlevel} vocabularyWord={vocabularyWord} /> )}
           </Grid>
+
+          <TablePagination
+            component="div"
+            count={vocabularyWords.length}
+            page={page}
+            onChangePage={handleChangePage}
+            rowsPerPage={rowsPerPage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+          />
         </Container>
       </main>
       {/* Footer */}
