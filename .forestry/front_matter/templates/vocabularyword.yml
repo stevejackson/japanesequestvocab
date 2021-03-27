@@ -2,6 +2,17 @@
 label: VocabularyWord
 hide_body: true
 fields:
+- name: powerlevel
+  type: number
+  label: PowerLevel
+  description: ''
+  default: 0
+  required: true
+  config:
+    min: 
+    max: 
+    step: 
+    required: true
 - name: expression
   type: text
   config:
@@ -13,15 +24,6 @@ fields:
   config:
     required: true
   label: Definition
-- name: notes
-  type: textarea
-  default: ''
-  config:
-    required: false
-    wysiwyg: false
-    schema:
-      format: markdown
-  label: Notes
 - name: screenshot
   type: file
   config:
@@ -32,5 +34,36 @@ fields:
   config:
     required: false
   label: Pronunciation
+- name: notes
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Notes
+- name: game
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Game
+- name: episode
+  type: text
+  config:
+    required: false
+  label: Episode
+- name: videolink
+  type: text
+  config:
+    required: false
+  label: VideoLink
 pages:
 - VocabularyWords/2114.md
