@@ -9,8 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
-import {VocabularyWordCard} from "../components/VocabularyWordCard";
-import {graphql} from "gatsby";
+import {VocabularyWordCard} from "./VocabularyWordCard";
 
 function Copyright() {
   return (
@@ -46,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const VocabularyIndexPage = ({vocabularyWords}) => {
+const VocabularyIndexPage = ({vocabularyWords}) => {
   const classes = useStyles();
 
   return (
@@ -111,3 +110,5 @@ export const VocabularyIndexPage = ({vocabularyWords}) => {
   );
 }
 
+
+export default VocabularyIndexPage
