@@ -1,6 +1,7 @@
 ---
 label: VocabularyWord
 hide_body: true
+display_field: expression
 fields:
 - name: powerlevel
   type: number
