@@ -48,7 +48,8 @@ fields:
   default: []
   config:
     required: false
-    options: []
+    options:
+    - Xenoblade Chronicles 2
     source:
       type: simple
       section: 
