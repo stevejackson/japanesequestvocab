@@ -71,15 +71,17 @@ export default function WordDialog({vocabularyWord, open, onClose}) {
           <DefinitionItem term="Definition">{vocabularyWord.definition}</DefinitionItem>
           <DefinitionItem term="Notes">{vocabularyWord.notes}</DefinitionItem>
           <DefinitionItem term="Screenshot">
-            <img src={imageLocation} alt={vocabularyWord.expression} style={{
-              width: "100%",
-            }}/>
+            {imageLocation &&
+              <img src={imageLocation} alt={vocabularyWord.expression} style={{
+                width: "100%",
+              }}/>
+            }
 
           </DefinitionItem>
         </DefinitionList>
       </DialogContent>
       <DialogActions>
-        <Button autoFocus onClick={onClose} color="primary">
+        <Button onClick={onClose} color="primary">
           Close
         </Button>
       </DialogActions>

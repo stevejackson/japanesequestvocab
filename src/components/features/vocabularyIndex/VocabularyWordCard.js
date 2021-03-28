@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     "&:hover": {
-      boxShadow: "4px 4px 2px rgb(100, 100, 100, 1)",
+      boxShadow: "4px 4px 2px rgb(150, 150, 150, 1)",
     }
   },
   cardMedia: {
