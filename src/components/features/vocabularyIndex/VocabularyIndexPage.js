@@ -9,6 +9,7 @@ import Link from '@material-ui/core/Link';
 import {VocabularyWordCard} from "./VocabularyWordCard";
 
 import TablePagination from '@material-ui/core/TablePagination';
+import WordDialog from "./WordDialog";
 
 function Copyright() {
   return (
@@ -48,6 +49,7 @@ const VocabularyIndexPage = ({vocabularyWords}) => {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(100);
+  const [wordToDisplayDetails, setWordToDisplayDetails] = React.useState(null);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -64,7 +66,6 @@ const VocabularyIndexPage = ({vocabularyWords}) => {
     <React.Fragment>
       <CssBaseline />
       <main>
-        {/* Hero unit */}
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
@@ -97,7 +98,12 @@ const VocabularyIndexPage = ({vocabularyWords}) => {
           />
 
           <Grid container spacing={4}>
-            {displayedVocabularyWords.map(vocabularyWord => <VocabularyWordCard key={vocabularyWord.powerlevel} vocabularyWord={vocabularyWord} /> )}
+            {displayedVocabularyWords.map(vocabularyWord =>
+              <VocabularyWordCard key={vocabularyWord.powerlevel}
+                                  vocabularyWord={vocabularyWord}
+                                  onShowVocabWordDetails={() => setWordToDisplayDetails(vocabularyWord)}
+              /> )
+            }
           </Grid>
 
           <TablePagination
@@ -120,6 +126,10 @@ const VocabularyIndexPage = ({vocabularyWords}) => {
         </Typography>
         <Copyright />
       </footer>
+      <WordDialog open={Boolean(wordToDisplayDetails)}
+                  onClose={() => setWordToDisplayDetails(null)}
+                  vocabularyWord={wordToDisplayDetails}
+      />
       {/* End footer */}
     </React.Fragment>
   );

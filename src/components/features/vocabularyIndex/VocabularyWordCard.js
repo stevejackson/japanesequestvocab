@@ -20,13 +20,14 @@ const useStyles = makeStyles((theme) => ({
   cardMedia: {
     paddingTop: '56.25%', // 16:9
     backgroundColor: 'rgb(240, 240, 240, 1)',
+    cursor: "pointer",
   },
   cardContent: {
     flexGrow: 1,
   },
 }));
 
-export const VocabularyWordCard = ({vocabularyWord}) => {
+export const VocabularyWordCard = ({vocabularyWord, onShowVocabWordDetails}) => {
   const classes = useStyles();
 
   const imageLocation = vocabularyWord.screenshot ? vocabularyWord.screenshot.substring(7) : null
@@ -38,6 +39,7 @@ export const VocabularyWordCard = ({vocabularyWord}) => {
           className={classes.cardMedia}
           image={imageLocation}
           title="Image title"
+          onClick={onShowVocabWordDetails}
         />
         <CardContent className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
@@ -48,8 +50,8 @@ export const VocabularyWordCard = ({vocabularyWord}) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" color="primary">
-            View
+          <Button size="small" color="primary" onClick={onShowVocabWordDetails}>
+            View Details
           </Button>
         </CardActions>
       </Card>
