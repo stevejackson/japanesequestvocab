@@ -1,4 +1,5 @@
 require 'csv'
+require 'json'
 
 # format:
 #
@@ -24,9 +25,9 @@ CSV.foreach("./vocab_to_import.csv").with_index do |row, i|
   File.open("./testoutput/#{power_level.to_s.rjust(5, '0')}.md", "w") { |file|
     file.puts "---"
     file.puts "powerlevel: #{power_level}"
-    file.puts "expression: #{expression}"
-    file.puts "definition: #{definition}"
-    file.puts "pronunciation: #{pronunciation}"
+    file.puts "expression: #{expression.to_json}"
+    file.puts "definition: #{definition.to_json}"
+    file.puts "pronunciation: #{pronunciation.to_json}"
     file.puts "---"
   }
 end
