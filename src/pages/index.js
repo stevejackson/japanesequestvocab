@@ -23,6 +23,9 @@ query {
         pronunciation
         title
         screenshot
+        game
+        episode
+        videolink
       }
     }
   }

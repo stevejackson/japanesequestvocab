@@ -58,6 +58,8 @@ export default function WordDialog({vocabularyWord, open, onClose}) {
 
   const imageLocation = vocabularyWord.screenshot ? vocabularyWord.screenshot.substring(7) : null
 
+  const contentOrMdash = (content) => content ? content : <>&mdash;</>
+
   return (
     <Dialog onClose={onClose} aria-labelledby="customized-dialog-title" open={open} maxWidth={"md"}>
       <DialogTitle id="customized-dialog-title" onClose={onClose}>
@@ -68,15 +70,21 @@ export default function WordDialog({vocabularyWord, open, onClose}) {
           <DefinitionItem term="Power Level">{vocabularyWord.powerlevel}</DefinitionItem>
           <DefinitionItem term="Expression">{vocabularyWord.expression}</DefinitionItem>
           <DefinitionItem term="Pronunciation">{vocabularyWord.pronunciation}</DefinitionItem>
-          <DefinitionItem term="Definition">{vocabularyWord.definition}</DefinitionItem>
-          <DefinitionItem term="Notes">{vocabularyWord.notes}</DefinitionItem>
+          <DefinitionItem term="Definition">{contentOrMdash(vocabularyWord.definition)}</DefinitionItem>
+          <DefinitionItem term="Notes">{contentOrMdash(vocabularyWord.notes)}</DefinitionItem>
           <DefinitionItem term="Screenshot">
-            {imageLocation &&
+            {contentOrMdash(imageLocation &&
               <img src={imageLocation} alt={vocabularyWord.expression} style={{
                 width: "100%",
-              }}/>
+              }}/>)
             }
-
+          </DefinitionItem>
+          <DefinitionItem term="Game">{contentOrMdash(vocabularyWord.game)}</DefinitionItem>
+          <DefinitionItem term="Episode">{contentOrMdash(vocabularyWord.episode)}</DefinitionItem>
+          <DefinitionItem term="Video URL">
+            {contentOrMdash(vocabularyWord.videolink &&
+              <a href={vocabularyWord.videolink}>Click here</a>)
+            }
           </DefinitionItem>
         </DefinitionList>
       </DialogContent>
