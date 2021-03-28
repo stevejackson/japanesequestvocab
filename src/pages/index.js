@@ -26,6 +26,7 @@ query {
         game
         episode
         videolink
+        notes
       }
     }
   }
