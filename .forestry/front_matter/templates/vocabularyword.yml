@@ -67,6 +67,7 @@ fields:
     required: false
   label: VideoLink
 pages:
+- VocabularyWords/00032.md
 - VocabularyWords/00052.md
 - VocabularyWords/00053.md
 - VocabularyWords/00054.md
